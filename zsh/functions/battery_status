@@ -1,0 +1,18 @@
+local st="$(acpi 2>/dev/null | sed 's/.*\ \([0-9]\+\)\%.*/\1/')"
+local ch="$(acpi -a 2>/dev/null | grep 'on-line')"
+
+if [[ -n "$ch" ]]; then
+	ch="⚡"
+else
+	ch=""
+fi
+
+if [[ -n "$st" && "$st" != "100" ]]; then
+	st="($st%%%%)"
+else
+	st=""
+fi
+
+if [[ -n "$ch$st" ]]; then
+	printf " $ch$st"
+fi
