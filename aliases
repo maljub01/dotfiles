@@ -1,4 +1,3 @@
 alias ls='ls --color'
-alias emacs='emacs -nw'
 
 [[ -s "$HOME/.aliases.local" ]] && source ~/.aliases.local
