@@ -4,6 +4,8 @@
 
 (defvar starter-kit-packages (list 'css-mode
                                    'paredit
+                                   'color-theme
+                                   'color-theme-ir-black
                                    'yaml-mode)
   "Libraries that should be installed by default.")
 
