@@ -2,21 +2,32 @@
 
 (require 'cl)
 
-(defvar starter-kit-packages (list 'css-mode
-                                   'paredit
-                                   'color-theme
-                                   'color-theme-ir-black
-                                   'yaml-mode)
+(defvar my-packages (list 'color-theme
+                          'color-theme-ir-black
+                          'magit
+                          'flymake-cursor
+                          'paredit
+                          'haml-mode
+                          'sass-mode
+                          'css-mode
+                          'haskell-mode
+                          'go-mode
+                          'auctex
+                          'rvm
+                          'yaml-mode)
   "Libraries that should be installed by default.")
 
-(defun starter-kit-elpa-install ()
-  "Install all starter-kit packages that aren't installed."
+(defun my-elpa-install ()
+  "Install all my packages that aren't installed."
   (interactive)
-  (dolist (package starter-kit-packages)
+  (defvar fetched-content nil)
+  (dolist (package my-packages)
     (unless (or (member package package-activated-list)
                 (functionp package))
+      (unless fetched-content (package-refresh-contents))
       (message "Installing %s" (symbol-name package))
-      (package-install package))))
+      (package-install package)
+      (setq fetched-content t))))
 
 (defun esk-online? ()
   "See if we're online.
@@ -34,7 +45,6 @@ just have to assume it's online."
 
 ;; On your first run, this should pull in all the base packages.
 (when (esk-online?)
-  (unless package-archive-contents (package-refresh-contents))
-  (starter-kit-elpa-install))
+  (my-elpa-install))
 
-(provide 'setup-elpa)
+(provide 'setup-my-elpa)
