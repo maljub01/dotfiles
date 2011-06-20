@@ -1,13 +1,12 @@
 IGNORED = ["Rakefile", "README", "~$"]
 
 desc "Create symlinks for the dotfiles, keeping backups of the old files."
-task :install do
-  start_time = Time.now
-
+task :update do
   puts "Getting the latest updates."
   `git pull && git submodule init && git submodule update`
-  puts "Rakefile changed by update. Restarting..." && `rake install` && exit if File.mtime("Rakefile") > start_time
+end
 
+task :install do
   Dir["*"].reject { |f| IGNORED.any? { |m| f.match(m) } }.each do |file|
     target = File.join(Dir.pwd, file)
     link   = File.expand_path("~/.#{file}")
