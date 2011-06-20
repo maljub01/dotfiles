@@ -62,12 +62,10 @@
 
 (setq inhibit-splash-screen t)
 
-(require 'setup-elpa)
+(require 'setup-my-elpa)
 (require 'key-bindings)
 
 ;; AUCTeX ;; ADD CODE TO CHECK IF AVAILABLE
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
