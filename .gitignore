@@ -1,4 +1,5 @@
 emacs.d/elpa/*/
 emacs.d/.save*
+emacs.d/auto-save-list
 vim/.netrwhist
 
