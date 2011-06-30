@@ -3,4 +3,7 @@
 	diff = auto
 	interactive = auto
 	status = auto
+[alias]
+	remove-trailing-whitespace = "!bash -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
+	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
