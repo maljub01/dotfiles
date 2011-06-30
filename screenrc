@@ -1,0 +1,20 @@
+###########################################################
+# Hey there! You should really use tmux instead of screen #
+###########################################################
+
+# Turn off startup message
+startup_message off
+
+# Enable colored terminal (might require ncurses-term to be installed)
+# term screen-256color
+term xterm-color
+
+# Autodetach session on hangup instead of terminating screen completely.
+autodetach on
+
+# Use 10000 lines for the scrollback buffer
+defscrollback 10000
+
+# Use Ctrl-b instead of Ctrl-a as the escape/command character.
+escape ^Bb
+
