@@ -106,6 +106,9 @@
 (define-key minibuffer-local-map (kbd "ESC") 'abort-recursive-edit)
 ;; comment/uncomment
 (vimpulse-vmap ",c" 'comment-dwim)
+;; viper shift
+(setq default-tab-width 2)
+(setq viper-shift-width 2)
 
 ;; Go Lang
 (require 'go-mode-load)
@@ -117,6 +120,7 @@
 (add-hook 'lisp-mode-hook       'turn-on-paredit)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
 
+;; Color Theme
 (require 'color-theme)
 (require 'color-theme-ir-black)
 (color-theme-ir-black)
