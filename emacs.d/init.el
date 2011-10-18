@@ -125,3 +125,5 @@
 (require 'color-theme-ir-black)
 (color-theme-ir-black)
 
+(global-auto-revert-mode)
+
