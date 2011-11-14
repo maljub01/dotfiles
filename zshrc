@@ -13,6 +13,27 @@ SAVEHIST=10000
 # Prevent duplicate commands (or commands starting with a space) from being saved in the history
 setopt histignoredups histignorespace
 
+# Cause typed commands to be appended to $HISTFILE (like specifying INC_APPEND_HISTORY) as well as importing new commands from it.
+# The history lines are also output with timestamps ala EXTENDED_HISTORY.
+setopt SHARE_HISTORY
+
+# Bind the up and down arrow keys to local history.
+bindkey '^[[A' up-line-or-local-history
+bindkey '^[[B' down-line-or-local-history
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
+
+
 # Configure the prompt
 PROMPT=$'%{${fg[cyan]}%}%B%n@%m%b%{${fg[default]}%}%# '
 RPROMPT='%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} %D{%a %b %d}, %T$(battery_status)'
@@ -35,7 +56,7 @@ setopt autopushd pushdminus pushdsilent pushdtohome
 alias dh='dirs -v' # Displays the directory stack, vertically and with numbering.
 
 # TODO: check out the following shell option configurations:
-# setopt   appendhistory autocd beep extendedglob nomatch notify
+# setopt   autocd beep extendedglob nomatch notify
 # setopt   globdots correct cdablevars autolist
 # setopt   correctall recexact longlistjobs
 # setopt   autoresume noclobber
