@@ -6,7 +6,7 @@
 [alias]
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' # List defined aliases
 	praise = blame # When blame is not enough
-	remove-trailing-whitespace = "!bash -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
+	delete-trailing-whitespace = "!bash -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
 	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # Pretty tree graph for git log
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"' # Show what's been created by the last command
 	prune-all = !git remote | xargs -n 1 git remote prune # Prunes all remote stale branches

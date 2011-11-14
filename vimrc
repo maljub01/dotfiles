@@ -132,3 +132,10 @@ function s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
+
+"
+" Highlight trailing whitespace.
+:highlight TrailingWhitespace ctermbg=red guibg=red
+:au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
+:au InsertLeave * match TrailingWhitespace /\s\+$/
+
