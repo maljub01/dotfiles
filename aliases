@@ -1,3 +1,4 @@
 alias ls='ls --color'
+alias quit='tmux kill-session'
 
 [[ -s "$HOME/.aliases.local" ]] && source ~/.aliases.local
