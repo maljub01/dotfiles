@@ -1,3 +1,6 @@
+[user]
+  name = <%= name = %x{git config --get 2>/dev/null user.name}.strip; name.empty? ? (print "Please enter your name (for gitconfig): "; STDIN.gets.strip) : name %>
+  email = <%= email = %x{git config --get 2>/dev/null user.email}.strip; email.empty? ? (print "Please enter your email (for gitconfig): "; STDIN.gets.strip) : email %>
 [color]
 	branch = auto
 	diff = auto
@@ -7,7 +10,7 @@
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' # List defined aliases
 	praise = blame # When blame is not enough
 	delete-trailing-whitespace = "!bash -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
-	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative # Pretty tree graph for git log
+	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset' --abbrev-commit --date=relative # Pretty tree graph for git log
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"' # Show what's been created by the last command
 	prune-all = !git remote | xargs -n 1 git remote prune # Prunes all remote stale branches
 	sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1' # Diff that ignores line number changes
