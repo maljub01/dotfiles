@@ -2,6 +2,51 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+"""""""""""
+" Vundle: "
+"""""""""""
+filetype off " Required.
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Required in order to have Vundle manage itself :)
+Bundle 'gmarik/vundle'
+
+" My Bundles:
+"
+" original repos on github
+Bundle 'tpope/vim-fugitive'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-surround'
+Bundle 'taq/vim-git-branch-info'
+" vim-scripts repos
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'rails.vim'
+Bundle 'matchit.zip'
+Bundle 'Align.vim'
+Bundle 'tir_black'
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+
+filetype plugin indent on " Required.
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(or update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after a Bundle command are not allowed..
+
+""""""""""""""""""""""""""
+" End of Vundle Settings "
+""""""""""""""""""""""""""
+
 set number          " show line numbers.
 set autoindent      " always set autoindenting on
 set incsearch		    " do incremental searching
@@ -12,13 +57,6 @@ set expandtab       " use spaces instead of tabs.
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -85,11 +123,11 @@ endif
 
 set cursorline
 set laststatus=2
-set statusline=%F%m%r%h%w\ [%l/%L,\ %v][%p%%]%=%#StatusLineNC#\ Git\ %#ErrorMsg#\ %{GitBranchInfoTokens()[0]}\ %#StatusLine# 
+set statusline=%F%m%r%h%w\ [%l/%L,\ %v][%p%%]%=%#StatusLineNC#\ Git\ %#ErrorMsg#\ %{GitBranchInfoTokens()[0]}\ %#StatusLine#
 
 let g:clipbrdDefaultReg = '+'
 
-colorscheme ir_black
+colorscheme tir_black
 
 let NERDTreeShowBookmarks=1
 map <F2> :tabnew .<CR>
