@@ -11,7 +11,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Required in order to have Vundle manage itself :)
-Bundle 'gmarik/vundle'
+Bundle 'maljub01/vundle'
 
 " My Bundles:
 "
