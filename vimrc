@@ -28,7 +28,7 @@ Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
 Bundle 'matchit.zip'
 Bundle 'Align.vim'
-Bundle 'tir_black'
+Bundle 'advantage'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 
@@ -127,7 +127,7 @@ set statusline=%F%m%r%h%w\ [%l/%L,\ %v][%p%%]%=%#StatusLineNC#\ Git\ %#ErrorMsg#
 
 let g:clipbrdDefaultReg = '+'
 
-colorscheme tir_black
+colorscheme advantage
 
 let NERDTreeShowBookmarks=1
 map <F2> :tabnew .<CR>
