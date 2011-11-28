@@ -5,7 +5,7 @@ IGNORED = ["Rakefile", "README", "~$"]
 desc "Create symlinks for the dotfiles, keeping backups of the old files."
 task :update do
   puts "Getting the latest updates."
-  `git pull && git submodule init && git submodule update`
+  `git pull && git submodule update --init --merge`
 end
 
 task :install do
