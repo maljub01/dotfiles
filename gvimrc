@@ -1,1 +1,1 @@
-set showtabline=2 " always show tab line to prevent resize bug. 
+set showtabline=2 " always show tab line to prevent resize bug.
