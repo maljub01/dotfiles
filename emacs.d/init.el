@@ -91,6 +91,7 @@
 (setq scheme-program-name "scheme48")
 
 ;; FlyMake
+(add-to-list 'load-path "~/.emacs.d/jshint-mode")
 (require 'flymake-conf)
 (require 'flymake-jshint)
 (add-hook 'javascript-mode-hook
