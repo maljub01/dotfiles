@@ -13,6 +13,7 @@ call vundle#rc()
 " Required in order to have Vundle manage itself :)
 Bundle 'maljub01/vundle'
 
+" NOTE: comments after a Bundle command are not allowed..
 " My Bundles:
 "
 " original repos on github
@@ -22,6 +23,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'taq/vim-git-branch-info'
+Bundle 'sjl/gundo.vim'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
@@ -41,7 +43,6 @@ filetype plugin indent on " Required.
 " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after a Bundle command are not allowed..
 
 """"""""""""""""""""""""""
 " End of Vundle Settings "
