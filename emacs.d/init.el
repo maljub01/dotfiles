@@ -108,6 +108,10 @@
 (remove-hook 'minibuffer-setup-hook 'viper-minibuffer-setup-sentinel)
 (defadvice viper-set-minibuffer-overlay (around vimpulse activate) nil)
 (define-key minibuffer-local-map (kbd "ESC") 'abort-recursive-edit)
+;; Make ESC responsive in the terminal (otherwise it would take a while before it would "trigger")
+(set 'viper-fast-keyseq-timeout 0)
+(set 'viper-no-multiple-ESC t)
+(defun viper-translate-all-ESC-keysequences () t)
 ;; comment/uncomment
 (vimpulse-vmap ",c" 'comment-dwim)
 ;; viper shift
