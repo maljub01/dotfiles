@@ -29,6 +29,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
 Bundle 'matchit.zip'
+Bundle 'Align'
 Bundle 'advantage'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'

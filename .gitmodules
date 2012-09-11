@@ -43,3 +43,6 @@
 [submodule "vim/bundle/gundo.vim"]
 	path = vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
+[submodule "vim/bundle/Align"]
+	path = vim/bundle/Align
+	url = https://github.com/vim-scripts/Align.git
