@@ -52,3 +52,7 @@
 	path = vim/bundle/Align
 	url = https://github.com/vim-scripts/Align.git
 	ignore = untracked
+[submodule "vim/bundle/jshint.vim"]
+	path = vim/bundle/jshint.vim
+	url = https://github.com/walm/jshint.vim.git
+	ignore = untracked

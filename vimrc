@@ -24,6 +24,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
 Bundle 'taq/vim-git-branch-info'
 Bundle 'sjl/gundo.vim'
+Bundle 'walm/jshint.vim'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
