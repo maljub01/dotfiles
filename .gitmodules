@@ -1,6 +1,7 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = git://github.com/maljub01/vundle
+	ignore = untracked
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -22,15 +23,19 @@
 [submodule "vim/bundle/L9"]
 	path = vim/bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+	ignore = untracked
 [submodule "vim/bundle/FuzzyFinder"]
 	path = vim/bundle/FuzzyFinder
 	url = https://github.com/vim-scripts/FuzzyFinder.git
+	ignore = untracked
 [submodule "vim/bundle/rails.vim"]
 	path = vim/bundle/rails.vim
 	url = https://github.com/vim-scripts/rails.vim.git
+	ignore = untracked
 [submodule "vim/bundle/matchit.zip"]
 	path = vim/bundle/matchit.zip
 	url = https://github.com/vim-scripts/matchit.zip.git
+	ignore = untracked
 [submodule "vim/bundle/advantage"]
 	path = vim/bundle/advantage
 	url = https://github.com/vim-scripts/advantage.git
@@ -46,3 +51,4 @@
 [submodule "vim/bundle/Align"]
 	path = vim/bundle/Align
 	url = https://github.com/vim-scripts/Align.git
+	ignore = untracked
