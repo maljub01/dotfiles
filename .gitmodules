@@ -56,3 +56,6 @@
 	path = vim/bundle/jshint.vim
 	url = https://github.com/walm/jshint.vim.git
 	ignore = untracked
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
