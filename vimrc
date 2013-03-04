@@ -18,11 +18,12 @@ Bundle 'maljub01/vundle'
 "
 " original repos on github
 Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'taq/vim-git-branch-info'
 Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
@@ -34,7 +35,7 @@ Bundle 'matchit.zip'
 Bundle 'Align'
 Bundle 'advantage'
 " non github repos
-Bundle 'git://git.wincent.com/command-t.git'
+" Bundle 'git://url/for/repo.git'
 
 filetype plugin indent on " Required.
 "
