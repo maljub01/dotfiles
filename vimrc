@@ -29,7 +29,6 @@ Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
 " vim-scripts repos
 Bundle 'L9'
-Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
 Bundle 'matchit.zip'
 Bundle 'Align'

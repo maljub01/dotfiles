@@ -24,10 +24,6 @@
 	path = vim/bundle/L9
 	url = https://github.com/vim-scripts/L9.git
 	ignore = untracked
-[submodule "vim/bundle/FuzzyFinder"]
-	path = vim/bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder.git
-	ignore = untracked
 [submodule "vim/bundle/rails.vim"]
 	path = vim/bundle/rails.vim
 	url = https://github.com/vim-scripts/rails.vim.git
