@@ -27,6 +27,7 @@ Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'taq/vim-git-branch-info'
 Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
+Bundle 'gregsexton/MatchTag'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'rails.vim'
