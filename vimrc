@@ -53,7 +53,7 @@ filetype plugin indent on " Required.
 
 set number          " show line numbers.
 set autoindent      " always set autoindenting on
-set incsearch		    " do incremental searching
+set incsearch       " do incremental searching
 
 " ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set ignorecase
@@ -91,14 +91,14 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set ruler	  " show the position (line #,column #) of the cursor all the time
+set ruler    " show the position (line #,column #) of the cursor all the time
 
 " In many terminal emulators the mouse works just fine - so if it's available, enable it.
 if has('mouse')
@@ -107,13 +107,13 @@ endif
 
 set nobackup
 " if has("vms")
-"   set nobackup		" do not keep a backup file, use versions instead
+"   set nobackup    " do not keep a backup file, use versions instead
 " else
-"   set backup		" keep a backup file
+"   set backup      " keep a backup file
 " endif
 
-set history=50		" keep 50 lines of command line history
-set showcmd		" display incomplete commands
+set history=50     " keep 50 lines of command line history
+set showcmd        " display incomplete commands
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -148,8 +148,7 @@ nnoremap <C-l> gt
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
- 	  \ | wincmd p | diffthis
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 endif
 
 " Commands to open new files that are in the same directory as the one
@@ -184,4 +183,3 @@ endfunction
 :highlight TrailingWhitespace ctermbg=red guibg=red
 :au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
 :au InsertLeave * match TrailingWhitespace /\s\+$/
-
