@@ -55,6 +55,10 @@ set number          " show line numbers.
 set autoindent      " always set autoindenting on
 set incsearch		    " do incremental searching
 
+" ignore case if search pattern is all lowercase, case-sensitive otherwise.
+set ignorecase
+set smartcase
+
 set tabstop=2       " number of spaces that each tab counts for.
 set shiftwidth=2    " use 2 spaces for each indentation.
 set expandtab       " use spaces instead of tabs.
