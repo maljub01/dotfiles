@@ -6,6 +6,7 @@ desc "Create symlinks for the dotfiles, keeping backups of the old files."
 task :update do
   puts "Getting the latest updates."
   `git pull && git submodule update --init --merge`
+  `vim +BundleClean! +BundleInstall +qall`
 end
 
 task :install do
