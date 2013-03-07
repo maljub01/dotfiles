@@ -22,18 +22,22 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'taq/vim-git-branch-info'
 Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'gregsexton/MatchTag'
+
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'rails.vim'
 Bundle 'matchit.zip'
 Bundle 'Align'
 Bundle 'advantage'
+
 " non github repos
 " Bundle 'git://url/for/repo.git'
 
