@@ -4,14 +4,15 @@ IGNORED = ["Rakefile", "README", "~$"]
 
 desc "Create symlinks for the dotfiles, keeping backups of the old files."
 task :update do
-  puts "Getting the latest updates."
+  puts "Getting the latest updates..."
   `git pull && git submodule update --init --merge`
   `vim +BundleClean! +BundleInstall +qall`
 end
 
-task :install do
+task :setup do
+  puts "Setting up..."
   def backup(file)
-    return unless File.exists?(file)
+    return unless File.exists?(file) || File.symlink?(file)
     backup_count = Dir["#{file}.backup*"].length
     File.rename(file, "#{file}.backup#{backup_count}") && puts("Moving '#{file}' to '#{file}.backup#{backup_count}'")
   end
@@ -43,3 +44,5 @@ task :install do
     end
   end
 end
+
+task :install => [:setup, :update]
