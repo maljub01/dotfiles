@@ -14,7 +14,3 @@ autodetach on
 
 # Use 10000 lines for the scrollback buffer
 defscrollback 10000
-
-# Use Ctrl-b instead of Ctrl-a as the escape/command character.
-escape ^Bb
-
