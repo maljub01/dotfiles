@@ -73,6 +73,10 @@ esac
 #    . ~/.bash_aliases
 #fi
 
+if [ -f ~/.profile ]; then
+    . ~/.profile
+fi
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
