@@ -4,7 +4,9 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-source ~/.aliases
+if [ -f ~/.aliases ]; then
+  source ~/.aliases
+fi
 
 if [ -d "/usr/lib/jvm/java-1.6.0-openjdk/jre" ] ; then
   export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk/jre
@@ -33,4 +35,3 @@ fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
