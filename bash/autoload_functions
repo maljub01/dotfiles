@@ -13,6 +13,8 @@ autoload_functions () {
 
         $fname \$@
       }
+
+      typeset -fx $fname
     "
   done
 }
