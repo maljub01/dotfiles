@@ -2,7 +2,7 @@ autoload_functions () {
   local f;
 
   for f in `find $FUNCTIONS_DIR/* -type f -executable`; do
-    fname=`basename $f`
+    local fname=`basename $f`
     eval "
       $fname () {
         eval \"
