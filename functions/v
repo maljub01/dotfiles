@@ -1,0 +1,31 @@
+if [ $STY ]; then
+  # screen
+  VIM_SERVER_NAME="VIM-SCREEN-$STY"
+
+  if [ "`vim --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
+    # No vim server, become the server
+    screen -X title vim
+    vim --servername $VIM_SERVER_NAME $@
+    screen -X title `basename $SHELL`
+  else
+    # A vim server exists, use it, then switch to it.
+    vim --servername $VIM_SERVER_NAME --remote-tab $@
+    screen -X select vim
+  fi
+elif [ $TMUX ]; then
+  # tmux
+  VIM_SERVER_NAME="VIM-TMUX-`tmux list-windows -F '#{session_name}' | head -1`"
+
+  if [ "`vim --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
+    # No vim server, become the server
+    tmux rename-window vim
+    vim --servername $VIM_SERVER_NAME $@
+    tmux rename-window `basename $SHELL`
+  else
+    # A vim server exists, use it, then switch to it.
+    vim --servername $VIM_SERVER_NAME --remote-tab $@
+    tmux select-window -t vim
+  fi
+else
+  vim $@
+fi
