@@ -1,6 +1,6 @@
 if [ $STY ]; then
   # screen
-  VIM_SERVER_NAME="VIM-SCREEN-$STY"
+  local VIM_SERVER_NAME="VIM-SCREEN-$STY"
 
   if [ "`vim --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
     # No vim server, become the server
@@ -14,7 +14,7 @@ if [ $STY ]; then
   fi
 elif [ $TMUX ]; then
   # tmux
-  VIM_SERVER_NAME="VIM-TMUX-`tmux list-windows -F '#{session_name}' | head -1`"
+  local VIM_SERVER_NAME="VIM-TMUX-`tmux list-windows -F '#{session_name}' | head -1`"
 
   if [ "`vim --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
     # No vim server, become the server
