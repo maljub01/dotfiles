@@ -93,3 +93,9 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+export FUNCTIONS_DIR="$HOME/functions"
+
+# load bash directory scripts
+if [ -d ~/.bash ]; then
+  . ~/.bash/*
+fi

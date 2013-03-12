@@ -69,7 +69,7 @@ namedir () { export $1=$PWD ;  : ~$1 }
 # TODO: make namedir persistent by saving the names to a file, and provide
 #       renamedir and delnamedir functionalities.
 
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/functions ~/functions/**/* ~/.zsh/functions "${fpath[@]}")
 # Autoload all shell functions from all directories in $fpath (following
 # symlinks) that have the executable bit on (the executable bit is not
 # necessary, but gives you an easy way to stop the autoloading of a
