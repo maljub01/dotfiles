@@ -19,12 +19,19 @@ elif [ $TMUX ]; then
   if [ "`vim --serverlist | grep -i $VIM_SERVER_NAME`" = "" ]; then
     # No vim server, become the server
     tmux rename-window vim
+    printf '\033]2;%s\033\\' vim # rename pane
+
     vim --servername $VIM_SERVER_NAME $@
+
+    printf '\033]2;%s\033\\' `hostname` # rename pane
     tmux rename-window `basename $SHELL`
   else
     # A vim server exists, use it, then switch to it.
     vim --servername $VIM_SERVER_NAME --remote-tab $@
     tmux select-window -t vim
+
+    local VIM_PANE="`tmux list-panes -F '#{pane_title}' | grep -n '^vim$' | cut -f1 -d :`"
+    tmux select-pane -t $((VIM_PANE-1))
   fi
 else
   vim $@
