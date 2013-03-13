@@ -59,15 +59,12 @@ set number          " show line numbers.
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
 
+set autoread        " Automatically reload files that have been changed outside of vim
+set autowriteall    " Automatically write files when changing buffers
+
 " ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set ignorecase
 set smartcase
-
-" Automatically reload files that have been changed outside of vim
-set autoread
-
-" Automatically write files when changing buffers
-set autowriteall
 
 " Tabs
 set tabstop=2       " number of spaces that each tab counts for.
