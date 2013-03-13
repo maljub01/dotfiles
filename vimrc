@@ -27,7 +27,6 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'taq/vim-git-branch-info'
-Bundle 'sjl/gundo.vim'
 Bundle 'walm/jshint.vim'
 Bundle 'gregsexton/MatchTag'
 
@@ -53,6 +52,17 @@ filetype plugin indent on " Required.
 
 """"""""""""""""""""""""""
 " End of Vundle Settings "
+""""""""""""""""""""""""""
+" Undo Settings:
+"
+" Gundo: a plugin for visualizing your undo tree
+Bundle 'sjl/gundo.vim'
+
+set undofile                " Automatically save undo history to an undo file
+set undodir=$HOME/.vim/undo " Where to save undo histories
+set undolevels=1000         " Max. number of changes that can be undone
+set undoreload=1000         " Max. number of lines for saving buffers for undo upon reload
+
 """"""""""""""""""""""""""
 
 set number          " show line numbers.
