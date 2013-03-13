@@ -63,6 +63,13 @@ set incsearch       " do incremental searching
 set ignorecase
 set smartcase
 
+" Automatically reload files that have been changed outside of vim
+set autoread
+
+" Automatically write files when changing buffers
+set autowriteall
+
+" Tabs
 set tabstop=2       " number of spaces that each tab counts for.
 set shiftwidth=2    " use 2 spaces for each indentation.
 set expandtab       " use spaces instead of tabs.
