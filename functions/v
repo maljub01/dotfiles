@@ -1,3 +1,10 @@
+# A shell function that allows reusing the same screen window (or tmux window & pane) for editing/viewing files with vim,
+#   and falls back to being an alias for vim when not using within a screen or tmux session.
+#
+# Inspired by the following question on superuser.com:
+#   http://superuser.com/questions/563448/screen-grouping-all-vim-invokation-under-one-window/563784
+#
+
 if [ $STY ]; then
   # screen
   local VIM_SERVER_NAME="VIM-SCREEN-$STY"
