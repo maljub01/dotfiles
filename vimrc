@@ -25,7 +25,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'taq/vim-git-branch-info'
 Bundle 'walm/jshint.vim'
 Bundle 'gregsexton/MatchTag'
@@ -52,6 +51,18 @@ filetype plugin indent on " Required.
 
 """"""""""""""""""""""""""
 " End of Vundle Settings "
+
+""""""""""""""""""""""""""
+" Sparkup: a plugin that lets you write HTML faster.
+"
+" usage: write HAML-like markup, then press Ctrl-e
+" examples:
+"   #wrapper.container
+"   .container > p.blog-post {First Paragraph} < .container > p.blog-post*3
+
+Bundle 'antonio/sparkup', {'rtp': 'vim/'}
+let g:sparkupExecuteMapping = '<c-c>' " Don't use the default mapping.
+
 """"""""""""""""""""""""""
 " Undo Settings:
 "
