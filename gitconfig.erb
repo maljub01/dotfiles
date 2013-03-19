@@ -20,3 +20,5 @@
 	sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1' # Diff that ignores line number changes
 	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
 
+[push]
+	default = simple
