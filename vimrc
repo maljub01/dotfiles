@@ -141,7 +141,7 @@ set nobackup
 "   set backup      " keep a backup file
 " endif
 
-set history=50     " keep 50 lines of command line history
+set history=1000   " how many lines of command line history to keep
 set showcmd        " display incomplete commands
 
 " Don't use Ex mode, use Q for formatting
