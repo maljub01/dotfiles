@@ -117,11 +117,6 @@ if has("autocmd")
     \ endif
 
   augroup END
-
-else
-
-  set autoindent    " always set autoindenting on
-
 endif " has("autocmd")
 
 " allow backspacing over everything in insert mode
