@@ -35,3 +35,8 @@ fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Source .profile.local if it exists
+if [ -f "$HOME/.profile.local" ] ; then
+  source $HOME/.profile.local
+fi
