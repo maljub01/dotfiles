@@ -76,7 +76,7 @@ set undoreload=1000         " Max. number of lines for saving buffers for undo u
 
 """"""""""""""""""""""""""
 
-set number          " show line numbers.
+set number          " show line numbers
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
 
@@ -85,7 +85,7 @@ set autowriteall    " Automatically write files when changing buffers
 
 set wildmenu        " Show a menu for commandline completion
 
-" ignore case if search pattern is all lowercase, case-sensitive otherwise.
+" Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 set smartcase
 
