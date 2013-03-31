@@ -83,6 +83,8 @@ set incsearch       " do incremental searching
 set autoread        " Automatically reload files that have been changed outside of vim
 set autowriteall    " Automatically write files when changing buffers
 
+set wildmenu        " Show a menu for commandline completion
+
 " ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set ignorecase
 set smartcase
