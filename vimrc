@@ -85,6 +85,13 @@ set autowriteall    " Automatically write files when changing buffers
 
 set wildmenu        " Show a menu for commandline completion
 
+" Patterns to exclude when globbing.
+set wildignore+=*/tmp/*
+set wildignore+=.git,.svn,CVS
+set wildignore+=*.o,*.a,*.class,*.obj,*.so,*~,*.swp,*.zip
+set wildignore+=*.log,*.log.*
+set wildignore+=*.jpg,*.png,*.xpm,*.gif,*.pdf
+
 " Ignore case if search pattern is all lowercase, case-sensitive otherwise
 set ignorecase
 set smartcase
