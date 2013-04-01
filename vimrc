@@ -96,6 +96,10 @@ set wildignore+=*.jpg,*.png,*.xpm,*.gif,*.pdf
 set ignorecase
 set smartcase
 
+" Don't use ignorecase for * and #
+:nnoremap * /\C\<<C-R>=expand('<cword>')<CR>\><CR>
+:nnoremap # ?\C\<<C-R>=expand('<cword>')<CR>\><CR>
+
 " Tabs
 set tabstop=2       " number of spaces that each tab counts for.
 set shiftwidth=2    " use 2 spaces for each indentation.
