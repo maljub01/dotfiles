@@ -80,8 +80,20 @@ set number          " show line numbers
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
 
+"""""""""""""""""""""""""""""""""""""""""""""""
+"
+" Automatically read/write changed buffers:
+"
 set autoread        " Automatically reload files that have been changed outside of vim
 set autowriteall    " Automatically write files when changing buffers
+
+" Check for file changes when moving the cursor, and read/write accordingly.
+autocmd CursorMoved * checktime | silent! update
+
+set noswapfile
+set nobackup
+
+"""""""""""""""""""""""""""""""""""""""""""""""
 
 set wildmenu        " Show a menu for commandline completion
 
@@ -141,13 +153,6 @@ set ruler    " show the position (line #,column #) of the cursor all the time
 if has('mouse')
   set mouse=a
 endif
-
-set nobackup
-" if has("vms")
-"   set nobackup    " do not keep a backup file, use versions instead
-" else
-"   set backup      " keep a backup file
-" endif
 
 set history=1000   " how many lines of command line history to keep
 set showcmd        " display incomplete commands
