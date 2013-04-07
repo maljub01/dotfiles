@@ -76,6 +76,7 @@ set undoreload=1000         " Max. number of lines for saving buffers for undo u
 
 """"""""""""""""""""""""""
 
+set hidden          " Don't unload buffers when they're abandoned.
 set number          " show line numbers
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
