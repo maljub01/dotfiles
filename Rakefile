@@ -1,6 +1,6 @@
 require 'erb'
 
-IGNORED = ["Rakefile", "README", "~$"]
+IGNORED = ["Rakefile", "README", /~$/, /^\./]
 NON_DOT = ["functions"]
 
 desc "Create symlinks for the dotfiles, keeping backups of the old files."
@@ -18,7 +18,10 @@ task :setup do
     File.rename(file, "#{file}.backup#{backup_count}") && puts("Moving '#{file}' to '#{file}.backup#{backup_count}'")
   end
 
-  Dir["*"].reject { |f| IGNORED.any? { |m| f.match(m) } }.each do |file|
+  files = `git ls-tree --name-only HEAD`.lines.map(&:strip)
+  files.reject! { |f| IGNORED.any? { |m| f.match(m) } }
+
+  files.each do |file|
     repoFile = File.join(Dir.pwd, file)
 
     if file.match('\.erb$')
