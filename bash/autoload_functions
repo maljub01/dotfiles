@@ -11,7 +11,7 @@ autoload_functions () {
           }
         \"
 
-        $fname \$@
+        $fname \"\$@\"
       }
 
       typeset -fx $fname

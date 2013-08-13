@@ -1,1 +1,1 @@
-grep --color -rIn $@ *
+grep --color -rIn "$@" *

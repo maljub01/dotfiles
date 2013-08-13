@@ -1,5 +1,5 @@
 if isGitRepo; then
-  git grep --color -n $@
+  git grep --color -n "$@"
 else
-  gg $@
+  gg "$@"
 fi
