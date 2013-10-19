@@ -16,7 +16,7 @@ Bundle 'maljub01/vundle'
 " NOTE: comments after a Bundle command are not allowed..
 " My Bundles:
 "
-" original repos on github
+" Original repos on github
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
@@ -29,62 +29,40 @@ Bundle 'taq/vim-git-branch-info'
 Bundle 'walm/jshint.vim'
 Bundle 'gregsexton/MatchTag'
 
-" vim-scripts repos
+" Vim-scripts repos:
 Bundle 'L9'
 Bundle 'rails.vim'
 Bundle 'matchit.zip'
 Bundle 'Align'
 Bundle 'advantage'
 
-" non github repos
+" Non-github repos:
 " Bundle 'git://url/for/repo.git'
 
-filetype plugin indent on " Required.
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(or update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-
-""""""""""""""""""""""""""
-" End of Vundle Settings "
-
-""""""""""""""""""""""""""
 " Sparkup: a plugin that lets you write HTML faster.
-"
 " usage: write HAML-like markup, then press Ctrl-e
 " examples:
 "   #wrapper.container
 "   .container > p.blog-post {First Paragraph} < .container > p.blog-post*3
-
 Bundle 'antonio/sparkup', {'rtp': 'vim/'}
 let g:sparkupExecuteMapping = '<c-c>' " Don't use the default mapping.
 
-""""""""""""""""""""""""""
-" Undo Settings:
-"
 " Gundo: a plugin for visualizing your undo tree
 Bundle 'sjl/gundo.vim'
+
+filetype plugin indent on " Required for vundle
 
 set undofile                " Automatically save undo history to an undo file
 set undodir=$HOME/.vim/undo " Where to save undo histories
 set undolevels=1000         " Max. number of changes that can be undone
 set undoreload=1000         " Max. number of lines for saving buffers for undo upon reload
 
-""""""""""""""""""""""""""
-
 set hidden          " Don't unload buffers when they're abandoned.
 set number          " show line numbers
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
 
-"""""""""""""""""""""""""""""""""""""""""""""""
-"
 " Automatically read/write changed buffers:
-"
 set autoread        " Automatically reload files that have been changed outside of vim
 set autowriteall    " Automatically write files when changing buffers
 
@@ -93,8 +71,6 @@ autocmd CursorMoved * checktime | silent! update
 
 set noswapfile
 set nobackup
-
-"""""""""""""""""""""""""""""""""""""""""""""""
 
 set wildmenu        " Show a menu for commandline completion
 
@@ -220,8 +196,6 @@ function s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-
-"
 " Highlight trailing whitespace.
 :highlight TrailingWhitespace ctermbg=red guibg=red
 :au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
