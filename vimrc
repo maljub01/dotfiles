@@ -2,11 +2,11 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-"""""""""""
-" Vundle: "
-"""""""""""
-filetype off " Required.
+if has("filetype")
+  filetype off " Required for vundle. The if-statement prevents exiting with a non-zero status on Mac OS X.
+endif
 
+" Setup Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
