@@ -20,5 +20,12 @@
 	sortdiff = !sh -c 'git diff "$@" | grep "^[+-]" | sort --key=1.2 | uniq -u -s1' # Diff that ignores line number changes
 	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
 
+  # When provided with 2 arguments: Succeeds iff the branch from the first argument contains the branch from the second argument
+  # When provided with 1 arguments: Succeeds iff the current branch contains the branch from the first argument
+  contains = "!sh -c 'if [ -z \"$2\" ]; then git branch -a --contains $1 | grep \"^* \" > /dev/null; else git branch -a --contains $2 | grep \\ $1\\$ > /dev/null; fi' -"
+
+  # Lists all branches contained in the first argument (or current branch if no argument is provided)
+  contained-branches = "!sh -c 'for b in `git branch -a | grep -v \"(no branch)\" | awk \"{ print \\\\$NF; }\"`; do if git contains $1 $b; then echo $b; fi; done' -"
+
 [push]
 	default = simple
