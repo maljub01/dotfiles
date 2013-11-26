@@ -24,6 +24,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 
+Bundle 'rodjek/vim-puppet'
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'taq/vim-git-branch-info'
 Bundle 'walm/jshint.vim'

@@ -61,3 +61,6 @@
 [submodule "vim/bundle/sparkup"]
 	path = vim/bundle/sparkup
 	url = https://github.com/antonio/sparkup.git
+[submodule "vim/bundle/vim-puppet"]
+	path = vim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
