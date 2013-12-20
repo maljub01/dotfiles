@@ -17,10 +17,6 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/.keymaps" -a -z $DISPLAY ] ; then
-  # Load keymaps (ie. making Caps an extra Ctrl) when in a virtual terminal
-  sudo loadkeys $HOME/.keymaps/*.map > /dev/null
-fi
 
 # jruby settings
 if [ -d "$HOME/workspace/jruby-1.6.0" ] ; then
