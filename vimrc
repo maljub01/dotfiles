@@ -45,7 +45,7 @@ Bundle 'advantage'
 " examples:
 "   #wrapper.container
 "   .container > p.blog-post {First Paragraph} < .container > p.blog-post*3
-Bundle 'antonio/sparkup', {'rtp': 'vim/'}
+Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 let g:sparkupExecuteMapping = '<c-c>' " Don't use the default mapping.
 
 " Gundo: a plugin for visualizing your undo tree
