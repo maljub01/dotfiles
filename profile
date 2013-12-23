@@ -17,3 +17,9 @@ fi
 if [ -f "$HOME/.profile.local" ] ; then
   source $HOME/.profile.local
 fi
+
+# rbenv: enable shims & autocompletion
+if [ -d "$HOME/.rbenv/bin" ] ; then
+  PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)";
+fi
