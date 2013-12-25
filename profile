@@ -5,8 +5,8 @@
 #umask 022
 
 function can_be_added_to_path() {
-  can_be_added=1
-  dir=$1
+  local can_be_added=1
+  local dir=$1
   if [ -d $dir ] ; then # Only can add if directory exists
     case ":$PATH:" in
       *:$dir:*) ;; # Don't add if already added
@@ -17,14 +17,14 @@ function can_be_added_to_path() {
 }
 
 function prepend_path() {
-  dir=$1
+  local dir=$1
   if can_be_added_to_path $dir; then
     export PATH="$dir:$PATH"
   fi
 }
 
 function append_path() {
-  dir=$1
+  local dir=$1
   if can_be_added_to_path $dir; then
     export PATH="$PATH:$dir"
   fi
