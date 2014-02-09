@@ -34,10 +34,9 @@ if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
 
-# Move /usr/local/bin to the top of PATH so it will be before /usr/bin
-# This is needed for homebrew to work properly, otherwise,
-# system-provided programs will be used instead of those
-# provided by Homebrew
+# Mac OS X: Move /usr/local/bin to the top of PATH so it will be before /usr/bin
+# This is needed for homebrew to work properly, otherwise, system-provided programs
+# will be used instead of those provided by Homebrew
 if [ "`uname`" = "Darwin" ] && which brew > /dev/null; then
   function fix_path_for_homebrew() {
     export PATH=":$PATH:" # Add : to both ends of PATH to make it easier to manipulate
@@ -57,14 +56,19 @@ if [ "`uname`" = "Darwin" ] && which brew > /dev/null; then
   esac
 fi
 
-# If curl-ca-bundle is installed (using homebrew), then use it with OpenSSL
+# Mac OS X: If curl-ca-bundle is installed (using homebrew), then use it with OpenSSL
 # This fixes a lot of openssl-related ruby issues on the Mac.
 if [ "`uname`" = "Darwin" -a -d "/usr/local/opt/curl-ca-bundle" ]; then
   export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 fi
 
-# Set PATH so it includes user's private bin if it exists
+# Set PATH so it includes user's private bin and its subdirectories if they exist
 prepend_path $HOME/bin
+if [ -d "$HOME/bin" ] ; then
+  for BIN_DIR in `find $HOME/bin/* -type 'd'`; do
+    prepend_path $BIN_DIR
+  done
+fi
 
 # Source .profile.local if it exists
 if [ -f "$HOME/.profile.local" ] ; then
@@ -77,6 +81,8 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
   eval "$(rbenv init -)";
 fi
 
-# Use PCRE for regular expressions when building things with homebrew (on OS X):
+# Mac OS X: Use PCRE for regular expressions when building things with homebrew
 # For this to work, you need to install the library: brew install pcre
-export USE_LIBPCRE=yes
+if [ "`uname`" = "Darwin" ]; then
+  export USE_LIBPCRE=yes
+fi
