@@ -13,7 +13,6 @@
                           'haskell-mode
                           'go-mode
                           'auctex
-                          'rvm
                           'yaml-mode)
   "Libraries that should be installed by default.")
 
