@@ -16,6 +16,32 @@ function can_be_added_to_path() {
   return $can_be_added;
 }
 
+function path_includes() {
+  local dir=$1
+  case ":$PATH:" in
+    *:$dir:*) true;;
+    *) false;;
+  esac
+}
+
+# Add : to both ends of PATH to make it easier to manipulate
+function give_path_colons() {
+  export PATH=":$PATH:"
+}
+
+# Remove : from both ends of PATH
+function remove_colons_from_path() {
+  export PATH=${PATH/#:}
+  export PATH=${PATH/%:}
+}
+
+function remove_path() {
+  local dir=$1
+  give_path_colons
+  export PATH=${PATH/:$dir:/:}
+  remove_colons_from_path
+}
+
 function prepend_path() {
   local dir=$1
   if can_be_added_to_path $dir; then
@@ -30,6 +56,36 @@ function append_path() {
   fi
 }
 
+# Add $1 right on top of $2 in $PATH (Assumes $PATH includes $2)
+function immediately_precede_path() {
+  local dir1=$1
+  local dir2=$2
+
+  if can_be_added_to_path $dir1; then
+    give_path_colons
+    export PATH=${PATH/:$dir2:/:$dir1:$dir2:}
+    remove_colons_from_path
+  fi
+}
+
+# Ensure $1 precedes $2 in $PATH
+function ensure_path_precedence() {
+  local dir1=$1
+  local dir2=$2
+
+  function fix_path_precedence() {
+    remove_path $dir1
+    immediately_precede_path $dir1 $dir2
+  }
+
+  case ":$PATH:" in
+    *:$dir2:*:$dir1:*) fix_path_precedence;;
+    *:$dir2:$dir1:*) fix_path_precedence;;
+  esac
+
+  unset -f fix_path_precedence
+}
+
 if [ -f ~/.aliases ]; then
   source ~/.aliases
 fi
@@ -38,22 +94,7 @@ fi
 # This is needed for homebrew to work properly, otherwise, system-provided programs
 # will be used instead of those provided by Homebrew
 if [ "`uname`" = "Darwin" ] && which brew > /dev/null; then
-  function fix_path_for_homebrew() {
-    export PATH=":$PATH:" # Add : to both ends of PATH to make it easier to manipulate
-    export PATH=${PATH/:\/usr\/local\/bin:/:} # Remove old instance of /usr/local/bin
-
-    # Add /usr/loca/bin right on top of /usr/bin
-    export PATH=${PATH/:\/usr\/bin:/:\/usr\/local\/bin:\/usr\/bin:}
-
-    # Remove : from both ends of PATH
-    export PATH=${PATH/#:/}
-    export PATH=${PATH/%:/}
-  }
-
-  case ":$PATH:" in
-    *:/usr/bin:*:/usr/local/bin:*) fix_path_for_homebrew;;
-    *:/usr/bin:/usr/local/bin:*) fix_path_for_homebrew;;
-  esac
+  ensure_path_precedence /usr/local/bin /usr/bin
 fi
 
 # Mac OS X: If curl-ca-bundle is installed (using homebrew), then use it with OpenSSL
