@@ -1,6 +1,6 @@
 require 'erb'
 
-IGNORED = ["Rakefile", "README", /~$/, /^\./]
+IGNORED = ["Rakefile", "README", /~$/, /^\./, "mac_fixes.sh"]
 NON_DOT = ["functions"]
 
 def backup(file)
