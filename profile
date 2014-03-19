@@ -4,7 +4,7 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-function can_be_added_to_path() {
+can_be_added_to_path() {
   local can_be_added=1
   local dir=$1
   if [ -d $dir ] ; then # Only can add if directory exists
@@ -16,7 +16,7 @@ function can_be_added_to_path() {
   return $can_be_added;
 }
 
-function path_includes() {
+path_includes() {
   local dir=$1
   case ":$PATH:" in
     *:$dir:*) true;;
@@ -25,31 +25,31 @@ function path_includes() {
 }
 
 # Add : to both ends of PATH to make it easier to manipulate
-function give_path_colons() {
+give_path_colons() {
   export PATH=":$PATH:"
 }
 
 # Remove : from both ends of PATH
-function remove_colons_from_path() {
+remove_colons_from_path() {
   export PATH=${PATH/#:}
   export PATH=${PATH/%:}
 }
 
-function remove_path() {
+remove_path() {
   local dir=$1
   give_path_colons
   export PATH=${PATH/:$dir:/:}
   remove_colons_from_path
 }
 
-function prepend_path() {
+prepend_path() {
   local dir=$1
   if can_be_added_to_path $dir; then
     export PATH="$dir:$PATH"
   fi
 }
 
-function append_path() {
+append_path() {
   local dir=$1
   if can_be_added_to_path $dir; then
     export PATH="$PATH:$dir"
@@ -57,7 +57,7 @@ function append_path() {
 }
 
 # Add $1 right on top of $2 in $PATH (Assumes $PATH includes $2)
-function immediately_precede_path() {
+immediately_precede_path() {
   local dir1=$1
   local dir2=$2
 
@@ -69,11 +69,11 @@ function immediately_precede_path() {
 }
 
 # Ensure $1 precedes $2 in $PATH
-function ensure_path_precedence() {
+ensure_path_precedence() {
   local dir1=$1
   local dir2=$2
 
-  function fix_path_precedence() {
+  fix_path_precedence() {
     remove_path $dir1
     immediately_precede_path $dir1 $dir2
   }
