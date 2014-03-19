@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # A shell function that allows reusing the same screen window (or tmux window & pane) for editing/viewing files with vim,
 #   and falls back to being an alias for vim when not using within a screen or tmux session.
 #

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if isGitRepo; then
   git grep --color -n "$@"
 else
