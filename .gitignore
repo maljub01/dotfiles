@@ -3,3 +3,4 @@ emacs.d/.save*
 emacs.d/auto-save-list
 vim/.netrwhist
 vim/undo
+bin/local/*
