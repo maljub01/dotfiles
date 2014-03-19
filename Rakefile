@@ -1,7 +1,7 @@
 require 'erb'
 
 IGNORED = ["Rakefile", "README", /~$/, /^\./, "mac_fixes.sh"]
-NON_DOT = ["functions"]
+NON_DOT = ["bin", "functions"]
 
 def backup(file)
   return unless File.exists?(file) || File.symlink?(file)
