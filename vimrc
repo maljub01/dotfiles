@@ -18,10 +18,13 @@ Bundle 'maljub01/vundle'
 " Original repos on github
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'KurtPreston/vim-autoformat-rails'
 
 Bundle 'rodjek/vim-puppet'
 
@@ -32,7 +35,6 @@ Bundle 'gregsexton/MatchTag'
 
 " Vim-scripts repos:
 Bundle 'L9'
-Bundle 'rails.vim'
 Bundle 'matchit.zip'
 Bundle 'Align'
 Bundle 'advantage'
