@@ -132,6 +132,11 @@ set ruler    " show the position (line #,column #) of the cursor all the time
 " In many terminal emulators the mouse works just fine - so if it's available, enable it.
 if has('mouse')
   set mouse=a
+
+  if exists("$TMUX")
+    " This makes copy/pasting from vim inside tmux easier.
+    set mouse=""
+  endif
 endif
 
 set history=1000   " how many lines of command line history to keep
