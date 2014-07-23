@@ -28,4 +28,4 @@
 	contained-branches = "!sh -c 'for b in `git branch -a | grep -v \"(no branch)\" | awk \"{ print \\\\$NF; }\"`; do if git contains $1 $b; then echo $b; fi; done' -"
 
 [push]
-	default = simple
+	default = matching
