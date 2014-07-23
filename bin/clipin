@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Mac: pbcopy
+if which pbcopy > /dev/null; then
+  pbcopy
+  exit;
+fi
+
+# Linux: xsel & xclip
+if which xsel > /dev/null; then
+  xsel --clipboard --input
+  exit;
+fi
+
+if which xclip > /dev/null; then
+  xclip -selection clipboard
+  exit;
+fi
+
+echo "Can't find a supported clipboard manager"
+exit 1;
