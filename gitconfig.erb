@@ -27,5 +27,17 @@
 	# Lists all branches contained in the first argument (or current branch if no argument is provided)
 	contained-branches = "!sh -c 'for b in `git branch -a | grep -v \"(no branch)\" | awk \"{ print \\\\$NF; }\"`; do if git contains $1 $b; then echo $b; fi; done' -"
 
+[rerere]
+	enabled = 1
 [push]
 	default = matching
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
+[mergetool "kdiff3NoAuto"]
+	cmd = kdiff3 --L1 \"$MERGED (Base)\" --L2 \"$MERGED (Local)\" --L3 \"$MERGED (Remote)\" -o \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "smartMeld"]
+	cmd = meld --diff $LOCAL $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
