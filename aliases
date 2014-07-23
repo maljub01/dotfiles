@@ -1,6 +1,8 @@
 if [ "`uname`" = "Darwin" ]; then
   alias ls='ls -G'
-else
+fi
+
+if [ "`uname`" = "Linux" ]; then
   alias ls='ls --color'
 fi
 
