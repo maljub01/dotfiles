@@ -22,9 +22,11 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'pangloss/vim-javascript'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'KurtPreston/vim-autoformat-rails'
+Bundle 'mxw/vim-jsx'
 
 Bundle 'rodjek/vim-puppet'
 
@@ -208,3 +210,6 @@ endfunction
 :highlight TrailingWhitespace ctermbg=red guibg=red
 :au InsertEnter * match TrailingWhitespace /\s\+\%#\@<!$/
 :au InsertLeave * match TrailingWhitespace /\s\+$/
+
+" Use JSXHint for JSX syntax checking
+let g:syntastic_javascript_checkers = ['jsxhint']
