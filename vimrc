@@ -7,54 +7,55 @@ filetype off " Required for vundle. 'filetype on' prevents exiting with a non-ze
 
 " Setup Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " Required in order to have Vundle manage itself :)
-Bundle 'maljub01/vundle'
+Plugin 'maljub01/vundle'
 
-" NOTE: comments after a Bundle command are not allowed..
+" NOTE: comments after a Plugin command are not allowed..
 " My Bundles:
 "
 " Original repos on github
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-rails'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'KurtPreston/vim-autoformat-rails'
-Bundle 'mxw/vim-jsx'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-ragtag'
+Plugin 'tpope/vim-rails'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'KurtPreston/vim-autoformat-rails'
+Plugin 'mxw/vim-jsx'
 
-Bundle 'rodjek/vim-puppet'
+Plugin 'rodjek/vim-puppet'
 
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'taq/vim-git-branch-info'
-Bundle 'walm/jshint.vim'
-Bundle 'gregsexton/MatchTag'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'taq/vim-git-branch-info'
+Plugin 'walm/jshint.vim'
+Plugin 'gregsexton/MatchTag'
 
 " Vim-scripts repos:
-Bundle 'L9'
-Bundle 'matchit.zip'
-Bundle 'Align'
-Bundle 'advantage'
+Plugin 'L9'
+Plugin 'matchit.zip'
+Plugin 'Align'
+Plugin 'advantage'
 
 " Non-github repos:
-" Bundle 'git://url/for/repo.git'
+" Plugin 'git://url/for/repo.git'
 
 " Sparkup: a plugin that lets you write HTML faster.
 " usage: write HAML-like markup, then press Ctrl-e
 " examples:
 "   #wrapper.container
 "   .container > p.blog-post {First Paragraph} < .container > p.blog-post*3
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 let g:sparkupExecuteMapping = '<c-c>' " Don't use the default mapping.
 
 " Gundo: a plugin for visualizing your undo tree
-Bundle 'sjl/gundo.vim'
+Plugin 'sjl/gundo.vim'
 
+call vundle#end()
 filetype plugin indent on " Required for vundle
 
 set undofile                " Automatically save undo history to an undo file
