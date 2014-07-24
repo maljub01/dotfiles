@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Tests if the argument is a function name
+type $1 2>&1 | head -1 | egrep "^$1.*function\$" > /dev/null;
