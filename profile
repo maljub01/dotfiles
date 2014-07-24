@@ -91,10 +91,17 @@ if [ -f ~/.aliases ]; then
 fi
 
 # Mac OS X: Move /usr/local/bin to the top of PATH so it will be before /usr/bin
-# This is needed for homebrew to work properly, otherwise, system-provided programs
+# This is needed for Homebrew to work properly, otherwise, system-provided programs
 # will be used instead of those provided by Homebrew
 if [ "`uname`" = "Darwin" ] && which brew > /dev/null; then
   ensure_path_precedence /usr/local/bin /usr/bin
+fi
+
+# Linux: Add $HOME/.linuxbrew/bin to PATH if it exists
+# This is needed for Linuxbrew (Homebrew for Linux) to work properly
+if [ -d "$HOME/.linuxbrew/bin" ] ; then
+  prepend_path $HOME/.linuxbrew/bin
+  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
 fi
 
 # Mac OS X: If curl-ca-bundle is installed (using homebrew), then use it with OpenSSL
