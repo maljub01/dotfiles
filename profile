@@ -93,8 +93,10 @@ fi
 # Mac OS X: Move /usr/local/bin to the top of PATH so it will be before /usr/bin
 # This is needed for Homebrew to work properly, otherwise, system-provided programs
 # will be used instead of those provided by Homebrew
+# The same should also be true for /usr/local/sbin since some formulae use it
 if [ "`uname`" = "Darwin" ] && which brew > /dev/null; then
   ensure_path_precedence /usr/local/bin /usr/bin
+  immediately_precede_path /usr/local/sbin /usr/sbin
 fi
 
 # Linux: Add $HOME/.linuxbrew/bin to PATH if it exists
