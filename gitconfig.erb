@@ -11,6 +11,7 @@
 	status = auto
 [alias]
 	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' # List defined aliases
+	touch = add -N
 	praise = blame # When blame is not enough
 	delete-trailing-whitespace = "!sh -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
 	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset' --abbrev-commit --date=relative # Pretty tree graph for git log
