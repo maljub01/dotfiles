@@ -15,6 +15,7 @@
 	praise = blame # When blame is not enough
 	delete-trailing-whitespace = "!sh -c 'for f in `git grep -Il \" $\"`; do sed -i \"s/ \\+$//\" $f; done'"
 	log-tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset' --abbrev-commit --date=relative # Pretty tree graph for git log
+	log-compact = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset'
 	new = !sh -c 'git log --reverse $1@{1}..$1@{0} "$@"' # Show what's been created by the last command
 	new-with-patches = !sh -c 'git log --reverse -p $1@{1}..$1@{0} "$@"' # Show what's been created by the last command (and generate patches)
 	prune-all = !git remote | xargs -n 1 git remote prune # Prunes all remote stale branches
