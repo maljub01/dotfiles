@@ -86,8 +86,8 @@ ensure_path_precedence() {
   unset -f fix_path_precedence
 }
 
-if [ -f ~/.aliases ]; then
-  source ~/.aliases
+if [ -f $HOME/.aliases ]; then
+  . $HOME/.aliases
 fi
 
 # Mac OS X: Move /usr/local/bin to the top of PATH so it will be before /usr/bin
@@ -122,7 +122,7 @@ fi
 
 # Source .profile.local if it exists
 if [ -f "$HOME/.profile.local" ] ; then
-  source $HOME/.profile.local
+  . $HOME/.profile.local
 fi
 
 # rbenv: enable shims & autocompletion
