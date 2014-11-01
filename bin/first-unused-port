@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+  echo "Usage: first-unused-port START_PORT [END_PORT]"
+  echo ""
+  echo "Where START_PORT - END_PORT is the port range you are tring to find an unsed port within"
+  echo "If END_PORT is missing, it's assumed to be 65535 (the maximum port number)"
+  echo ""
+  echo "Note that you will need root priviledges to run anything on ports less than 1025"
+  exit 1
+else
+  START_PORT=$1
+  if [ -z "$2" ]; then
+    END_PORT=65535
+  else
+    END_PORT=$2
+  fi
+fi
+
+for port in $(seq $START_PORT $END_PORT); do
+  echo -ne "\035" | telnet 127.0.0.1 $port > /dev/null 2>&1
+  if [ $? -eq 1 ]; then
+    echo $port
+    exit 0
+  fi
+done
+
+exit 1
