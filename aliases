@@ -13,3 +13,9 @@ alias quit='tmux kill-session'
 if [ -s "$HOME/.aliases.local" ]; then
   . ~/.aliases.local
 fi
+
+if [ "`uname`" = "Darwin" ]; then
+  alias c++11="clang++ -std=c++11 -Weverything -Wno-c++98-compat"
+elif [ "`uname`" = "Linux" ]; then
+  alias c++11="g++ -std=c++11 -Weverything -Wno-c++98-compat"
+fi

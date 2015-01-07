@@ -215,3 +215,6 @@ endfunction
 
 " Use JSXHint for JSX syntax checking
 let g:syntastic_javascript_checkers = ['jsxhint']
+
+" Use C++11
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
