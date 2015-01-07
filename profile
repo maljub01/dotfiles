@@ -54,6 +54,14 @@ if [ -d "$HOME/.rbenv/bin" ] ; then
   eval "$(rbenv init -)";
 fi
 
+# ansible: setup ansible to use it from the git repo.
+if [ -d "$HOME/github/ansible/ansible" ] ; then
+  export ANSIBLE_HOME="$HOME/github/ansible/ansible"
+  prepend_path "$ANSIBLE_HOME/bin"
+  prepend_var "$ANSIBLE_HOME/lib" PYTHONPATH
+  prepend_var "$ANSIBLE_HOME/docs/man" MANPATH
+fi
+
 # Mac OS X: Use PCRE for regular expressions when building things with homebrew
 # For this to work, you need to install the library: brew install pcre
 if [ "`uname`" = "Darwin" ]; then
