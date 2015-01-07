@@ -1,3 +1,5 @@
+#!/bin/sh
+#
 # ~/.profile: executed by the command interpreter for login shells.
 #
 # the default umask is set in /etc/profile; for setting the umask
