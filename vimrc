@@ -27,6 +27,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'KurtPreston/vim-autoformat-rails'
 Plugin 'mxw/vim-jsx'
+Plugin 'duganchen/vim-soy'
 
 Plugin 'rodjek/vim-puppet'
 
