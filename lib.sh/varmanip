@@ -1,0 +1,122 @@
+#!/bin/sh
+#
+# Shell methods for variable manipulation (incl. PATH manipulation)
+#
+
+
+# Use this function to obtain the value of a variable by indirectly referencing it.
+# i.e. X=1; `echo_var X` -eq 1
+echo_var() {
+  eval echo "\$$1"
+}
+
+can_be_added_to_var() {
+  local can_be_added=1
+  local dir=$1
+  local varname=$2
+  local var=`echo_var $varname`
+  if [ -d $dir ] ; then # Only can add if directory exists
+    case ":$var:" in
+      *:$dir:*) ;; # Don't add if already added
+      *) can_be_added=0;;
+    esac
+  fi
+  return $can_be_added;
+}
+can_be_added_to_path() { can_be_added_to_var $1 PATH }
+
+var_includes() {
+  local dir=$1
+  local varname=$2
+  local var=`echo_var $varname`
+  case ":$var:" in
+    *:$dir:*) true;;
+    *) false;;
+  esac
+}
+path_includes() { var_includes $1 PATH }
+
+# Add : to both ends of $var/PATH to make it easier to manipulate
+give_var_colons() {
+  local varname=$1
+  local var=`echo_var $varname`
+  export $varname=":$var:"
+}
+give_path_colons() { give_var_colons PATH }
+
+# Remove : from both ends of $var/PATH
+remove_colons_from_var() {
+  local varname=$1
+  local var=`echo_var $varname`
+  var=${var/#:}
+  var=${var/%:}
+  export $varname=$var
+}
+remove_colons_from_path() { remove_colons_from_var PATH }
+
+remove_from_var() {
+  local dir=$1
+  local varname=$2
+  local var=`echo_var $varname`
+  give_var_colons $varname
+  export $varname=${var/:$dir:/:}
+  remove_colons_from_var $varname
+}
+remove_from_path() { remove_from_var $1 PATH }
+
+prepend_var() {
+  local dir=$1
+  local varname=$2
+  local var=`echo_var $varname`
+  if can_be_added_to_var $dir $varname; then
+    export $varname="$dir:$var"
+  fi
+}
+prepend_path() { prepend_var $1 PATH }
+
+append_to_var() {
+  local dir=$1
+  local varname=$2
+  local var=`echo_var $varname`
+  if can_be_added_to_var $dir $varname; then
+    export $varname="$var:$dir"
+  fi
+}
+append_to_path() { append_to_var $1 PATH }
+
+# Add $1 right on top of $2 in the variable $3 (Assumes value of $3 includes $2)
+immediately_precede_in_var() {
+  local dir1=$1
+  local dir2=$2
+  local varname=$3
+  local var=`echo_var $varname`
+
+  if can_be_added_to_var $dir1 $varname; then
+    give_var_colons $varname
+    export $varname=${var/:$dir2:/:$dir1:$dir2:}
+    remove_colons_from_var $varname
+  fi
+}
+immediately_precede_in_path() { immediately_precede_in_var $1 $2 PATH }
+
+# Ensure $1 precedes $2 in the variable $3
+ensure_precedence_in_var() {
+  local dir1=$1
+  local dir2=$2
+  local varname=$3
+  local var=`echo_var $varname`
+
+  fix_var_precedence() {
+    remove_from_var $dir1 $varname
+    immediately_precede_in_var $dir1 $dir2 $varname
+  }
+
+  case ":$PATH:" in
+    *:$dir2:*:$dir1:*) fix_var_precedence;;
+    *:$dir2:$dir1:*) fix_var_precedence;;
+  esac
+
+  unset -f fix_var_precedence
+}
+ensure_precedence_in_path() { ensure_precedence_in_var $1 $2 PATH }
+
