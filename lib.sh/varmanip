@@ -57,8 +57,8 @@ remove_colons_from_path() { remove_colons_from_var PATH }
 remove_from_var() {
   local dir=$1
   local varname=$2
-  local var=`echo_var $varname`
   give_var_colons $varname
+  local var=`echo_var $varname`
   export $varname=${var/:$dir:/:}
   remove_colons_from_var $varname
 }
@@ -89,10 +89,10 @@ immediately_precede_in_var() {
   local dir1=$1
   local dir2=$2
   local varname=$3
-  local var=`echo_var $varname`
 
   if can_be_added_to_var $dir1 $varname; then
     give_var_colons $varname
+    local var=`echo_var $varname`
     export $varname=${var/:$dir2:/:$dir1:$dir2:}
     remove_colons_from_var $varname
   fi
