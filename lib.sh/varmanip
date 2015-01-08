@@ -111,7 +111,7 @@ ensure_precedence_in_var() {
     immediately_precede_in_var $dir1 $dir2 $varname
   }
 
-  case ":$PATH:" in
+  case ":$var:" in
     *:$dir2:*:$dir1:*) fix_var_precedence;;
     *:$dir2:$dir1:*) fix_var_precedence;;
   esac
