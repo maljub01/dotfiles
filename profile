@@ -49,7 +49,7 @@ if [ -f "$HOME/.profile.local" ] ; then
 fi
 
 # rbenv: enable shims & autocompletion
-if [ -d "$HOME/.rbenv/bin" ] ; then
+if [ -d "$HOME/.rbenv/bin" ]; then
   prepend_path $HOME/.rbenv/bin
   eval "$(rbenv init -)";
 fi
