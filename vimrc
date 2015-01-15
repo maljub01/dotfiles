@@ -64,8 +64,11 @@ set undodir=$HOME/.vim/undo " Where to save undo histories
 set undolevels=1000         " Max. number of changes that can be undone
 set undoreload=1000         " Max. number of lines for saving buffers for undo upon reload
 
+" Use hybrid line numbers
+set relativenumber
+set number
+
 set hidden          " Don't unload buffers when they're abandoned.
-set number          " show line numbers
 set autoindent      " always set autoindenting on
 set incsearch       " do incremental searching
 
