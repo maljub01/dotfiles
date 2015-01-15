@@ -49,6 +49,17 @@ if [ -d "$HOME/.rbenv/bin" ]; then
   eval "$(rbenv init -)";
 fi
 
+# Golang setup
+prepend_path /usr/local/go/bin
+if [ -d "/usr/lib/go" ]; then
+  export GOROOT=/usr/lib/go
+fi
+
+if [ -d "$HOME/go" ]; then
+  export GOPATH=$HOME/go
+  export PATH=$PATH:$GOPATH/bin
+fi
+
 # ansible: setup ansible to use it from the git repo.
 if [ -d "$HOME/github/ansible/ansible" ] ; then
   export ANSIBLE_HOME="$HOME/github/ansible/ansible"
