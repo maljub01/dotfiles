@@ -96,6 +96,6 @@ fi
 export FUNCTIONS_DIR="$HOME/functions"
 
 # load bash directory scripts
-if [ -d ~/.bash ]; then
-  . ~/.bash/*
+if [ -d $HOME/.bash ]; then
+  . $HOME/.bash/*
 fi

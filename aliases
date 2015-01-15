@@ -11,7 +11,7 @@ fi
 alias quit='tmux kill-session'
 
 if [ -s "$HOME/.aliases.local" ]; then
-  . ~/.aliases.local
+  . $HOME/.aliases.local
 fi
 
 if [ "`uname`" = "Darwin" ]; then
