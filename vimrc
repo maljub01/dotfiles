@@ -2,6 +2,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" https://github.com/gmarik/Vundle.vim/issues/175
+set shell=/bin/sh
+
 filetype on
 filetype off " Required for vundle. 'filetype on' prevents exiting with a non-zero status on Mac OS X.
 
