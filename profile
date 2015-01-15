@@ -43,11 +43,6 @@ if [ -d "$HOME/bin" ] ; then
   done
 fi
 
-# Source .profile.local if it exists
-if [ -f "$HOME/.profile.local" ] ; then
-  . $HOME/.profile.local
-fi
-
 # rbenv: enable shims & autocompletion
 if [ -d "$HOME/.rbenv/bin" ]; then
   prepend_path $HOME/.rbenv/bin
@@ -66,4 +61,10 @@ fi
 # For this to work, you need to install the library: brew install pcre
 if [ "`uname`" = "Darwin" ]; then
   export USE_LIBPCRE=yes
+fi
+
+# Source .profile.local if it exists
+# This should ideally be the last thing this file does.
+if [ -f "$HOME/.profile.local" ]; then
+  . $HOME/.profile.local
 fi
