@@ -1,7 +1,7 @@
 autoload_functions () {
   local f;
 
-  for f in `find $FUNCTIONS_DIR/* -type f -executable`; do
+  for f in `find $FUNCTIONS_DIR/* -type f -perm 755`; do
     local fname=`basename $f`
     eval "
       $fname () {
