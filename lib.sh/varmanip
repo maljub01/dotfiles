@@ -14,7 +14,7 @@ can_be_added_to_var() {
   local can_be_added=1
   local dir=$1
   local varname=$2
-  local var=`echo_var $varname`
+  local var="$(echo_var $varname)"
   if [ -d $dir ] ; then # Only can add if directory exists
     case ":$var:" in
       *:$dir:*) ;; # Don't add if already added
@@ -48,8 +48,8 @@ give_path_colons() { give_var_colons PATH; }
 remove_colons_from_var() {
   local varname=$1
   local var=`echo_var $varname`
-  var=${var/#:}
-  var=${var/%:}
+  var="${var/#:}"
+  var="${var/%:}"
   export $varname=$var
 }
 remove_colons_from_path() { remove_colons_from_var PATH; }
@@ -59,7 +59,7 @@ remove_from_var() {
   local varname=$2
   give_var_colons $varname
   local var=`echo_var $varname`
-  export $varname=${var/:$dir:/:}
+  export $varname="${var/:$dir:/:}"
   remove_colons_from_var $varname
 }
 remove_from_path() { remove_from_var $1 PATH; }
@@ -93,7 +93,7 @@ immediately_precede_in_var() {
   if can_be_added_to_var $dir1 $varname; then
     give_var_colons $varname
     local var=`echo_var $varname`
-    export $varname=${var/:$dir2:/:$dir1:$dir2:}
+    export $varname="${var/:$dir2:/:$dir1:$dir2:}"
     remove_colons_from_var $varname
   fi
 }

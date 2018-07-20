@@ -38,7 +38,7 @@ fi
 # Set PATH so it includes user's private bin and its subdirectories if they exist
 prepend_path $HOME/bin
 if [ -d "$HOME/bin" ] ; then
-  for BIN_DIR in `find $HOME/bin/* -type 'd'`; do
+  for BIN_DIR in $(find $HOME/bin/* -type 'd'); do
     prepend_path $BIN_DIR
   done
 fi

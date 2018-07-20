@@ -1,13 +1,13 @@
 autoload_functions () {
   local f;
 
-  for f in `find $FUNCTIONS_DIR/* -type f -perm 755`; do
-    local fname=`basename $f`
+  for f in $(find $FUNCTIONS_DIR/* -type f -perm 755); do
+    local fname=$(basename $f)
     eval "
       $fname () {
         eval \"
           $fname () {
-            \`cat $f\`
+            \$(cat $f)
           }
         \"
 
