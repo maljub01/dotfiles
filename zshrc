@@ -100,7 +100,7 @@ compinit
 # zstyle ':completion:*' glob 1
 # zstyle ':completion:*' format 'Completing %d'
 # zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' menu select=2
+# zstyle ':completion:*' menu select=2  # Arrow-key driven interface for completion.
 # eval "$(dircolors -b)"
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 #
